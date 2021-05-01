@@ -5,7 +5,7 @@ import Author from './Author';
 import Comments from './Comments';
 import Content from './Content';
 import Meta from './Meta';
-import Tags from './Tags';
+import Topics from './Topics';
 import styles from './Post.module.scss';
 import type { Node } from '../../types';
 
@@ -15,8 +15,8 @@ type Props = {
 
 const Post = ({ post }: Props) => {
   const { html } = post;
-  const { tagSlugs, slug } = post.fields;
-  const { tags, title, date } = post.frontmatter;
+  const { topicSlugs, slug } = post.fields;
+  const { topics, title, date } = post.frontmatter;
 
   return (
     <div className={styles['post']}>
@@ -28,7 +28,7 @@ const Post = ({ post }: Props) => {
 
       <div className={styles['post__footer']}>
         <Meta date={date} />
-        {tags && tagSlugs && <Tags tags={tags} tagSlugs={tagSlugs} />}
+        {topics && topicSlugs && <Topics topics={topics} topicSlugs={topicSlugs} />}
         <Author />
       </div>
 

@@ -16,8 +16,8 @@ module.exports = {
       path: '/'
     },
     {
-      label: 'Filter posts by tag',
-      path: '/tags'
+      label: 'Filter posts by topic',
+      path: '/topics'
     },
     {
       label: 'About me',
@@ -27,7 +27,7 @@ module.exports = {
   author: {
     name: 'Jonne Kleijer',
     photo: '/photo.jpg',
-    bio: 'Software developer in the water sector.',
+    bio: 'Software developer for products of AquaSuite at HaskoningDHV.',
     contacts: {
       email: '',
       facebook: '',

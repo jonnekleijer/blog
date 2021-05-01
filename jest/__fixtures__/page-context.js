@@ -2,7 +2,7 @@
 
 module.exports = {
   pageContext: {
-    tag: 'test',
+    topic: 'test',
     category: 'test',
     currentPage: 1,
     prevPagePath: '/page/1',

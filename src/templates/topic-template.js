@@ -14,11 +14,11 @@ type Props = {
   pageContext: PageContext
 };
 
-const TagTemplate = ({ data, pageContext }: Props) => {
+const TopicTemplate = ({ data, pageContext }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
 
   const {
-    tag,
+    topic,
     currentPage,
     prevPagePath,
     nextPagePath,
@@ -27,12 +27,12 @@ const TagTemplate = ({ data, pageContext }: Props) => {
   } = pageContext;
 
   const { edges } = data.allMarkdownRemark;
-  const pageTitle = currentPage > 0 ? `All Posts tagged as "${tag}" - Page ${currentPage} - ${siteTitle}` : `All Posts tagged as "${tag}" - ${siteTitle}`;
+  const pageTitle = currentPage > 0 ? `All Posts tagged as "${topic}" - Page ${currentPage} - ${siteTitle}` : `All Posts tagged as "${topic}" - ${siteTitle}`;
 
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
       <Sidebar />
-      <Page title={tag}>
+      <Page title={topic}>
         <Feed edges={edges} />
         <Pagination
           prevPagePath={prevPagePath}
@@ -46,7 +46,7 @@ const TagTemplate = ({ data, pageContext }: Props) => {
 };
 
 export const query = graphql`
-  query TagPage($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
+  query TopicPage($topic: String, $postsLimit: Int!, $postsOffset: Int!) {
     site {
       siteMetadata {
         title
@@ -56,7 +56,7 @@ export const query = graphql`
     allMarkdownRemark(
         limit: $postsLimit,
         skip: $postsOffset,
-        filter: { frontmatter: { tags: { in: [$tag] }, template: { eq: "post" }, draft: { ne: true } } },
+        filter: { frontmatter: { topics: { in: [$topic] }, template: { eq: "post" }, draft: { ne: true } } },
         sort: { order: DESC, fields: [frontmatter___date] }
       ){
       edges {
@@ -77,4 +77,4 @@ export const query = graphql`
   }
 `;
 
-export default TagTemplate;
+export default TopicTemplate;

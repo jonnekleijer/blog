@@ -3,7 +3,7 @@
 const path = require('path');
 const _ = require('lodash');
 const createCategoriesPages = require('./pagination/create-categories-pages.js');
-const createTagsPages = require('./pagination/create-tags-pages.js');
+const createTopicsPages = require('./pagination/create-topics-pages.js');
 const createPostsPages = require('./pagination/create-posts-pages.js');
 
 const createPages = async ({ graphql, actions }) => {
@@ -15,10 +15,10 @@ const createPages = async ({ graphql, actions }) => {
     component: path.resolve('./src/templates/not-found-template.js')
   });
 
-  // Tags list
+  // Topics list
   createPage({
-    path: '/tags',
-    component: path.resolve('./src/templates/tags-list-template.js')
+    path: '/topics',
+    component: path.resolve('./src/templates/topics-list-template.js')
   });
 
   // Categories list
@@ -66,7 +66,7 @@ const createPages = async ({ graphql, actions }) => {
   });
 
   // Feeds
-  await createTagsPages(graphql, actions);
+  await createTopicsPages(graphql, actions);
   await createCategoriesPages(graphql, actions);
   await createPostsPages(graphql, actions);
 };

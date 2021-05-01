@@ -55,7 +55,7 @@ $ gatsby serve
     │   │   ├── Comments
     │   │   ├── Content
     │   │   ├── Meta
-    │   │   └── Tags
+    │   │   └── Topics
     │   └── Sidebar
     │       ├── Author
     │       ├── Contacts
