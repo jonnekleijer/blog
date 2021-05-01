@@ -16,7 +16,9 @@ const useTopicsList = () => {
       }
     `
   );
-  return allMarkdownRemark.group.map((topic) => topic.fieldValue);
+  return allMarkdownRemark.group
+    .sort((a, b) => b.totalCount - a.totalCount || a.fieldValue - b.fieldValue)
+    .map((topic) => topic.fieldValue);
 };
 
 export default useTopicsList;
