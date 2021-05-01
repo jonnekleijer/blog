@@ -98,10 +98,12 @@ module.exports = {
         }]
       }
     },
+    `gatsby-plugin-netlify-cms-paths`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          `gatsby-plugin-netlify-cms-paths`,
           'gatsby-remark-relative-images',
           {
             resolve: 'gatsby-remark-katex',
@@ -186,7 +188,7 @@ module.exports = {
         background_color: '#FFF',
         theme_color: '#F7A046',
         display: 'standalone',
-        icon: 'static/photo.jpg'
+        icon: 'static/photo.jpg',
       },
     },
     {
