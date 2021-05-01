@@ -1,19 +1,23 @@
 'use strict';
 
 module.exports = {
-  url: 'https://lumen.netlify.com',
+  url: 'https://jonnekleijer.com',
   pathPrefix: '/',
   title: 'Blog by Jonne Kleijer',
-  subtitle: 'Software development in the water sector.',
+  subtitle: '',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
-  googleAnalyticsId: '',
+  googleAnalyticsId: 'G-7ZN3WCTWRL',
   useKatex: false,
   menu: [
     {
-      label: 'Articles',
+      label: 'Posts',
       path: '/'
+    },
+    {
+      label: 'Filter posts by tag',
+      path: '/tags'
     },
     {
       label: 'About me',
@@ -23,7 +27,7 @@ module.exports = {
   author: {
     name: 'Jonne Kleijer',
     photo: '/photo.jpg',
-    bio: 'Software development in the water sector.',
+    bio: 'Software developer in the water sector.',
     contacts: {
       email: '',
       facebook: '',
