@@ -16,7 +16,7 @@ module.exports = {
       path: '/'
     },
     {
-      label: 'Filter posts by topic',
+      label: 'Topics',
       path: '/topics'
     },
     {
