@@ -1,20 +1,20 @@
 // @flow strict
 import React from 'react';
 import { Link } from 'gatsby';
+import kebabCase from 'lodash/kebabCase';
 import styles from './Topics.module.scss';
 
 type Props = {
-  topics: string[],
-  topicSlugs: string[]
+  topics: string[]
 };
 
-const Topics = ({ topics, topicSlugs }: Props) => (
+const Topics = ({ topics }: Props) => (
   <div className={styles['topics']}>
     <ul className={styles['topics__list']}>
-      {topicSlugs && topicSlugs.map((slug, i) => (
-        <li className={styles['topics__list-item']} key={topics[i]}>
-          <Link to={slug} className={styles['topics__list-item-link']}>
-            {topics[i]}
+      {topics.map((topic) => (
+        <li className={styles['topics__list-item']} key={topic}>
+          <Link to={`/topic/${kebabCase(topic)}`} className={styles['topics__list-item-link']}>
+            {topic}
           </Link>
         </li>
       ))}

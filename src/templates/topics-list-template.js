@@ -1,10 +1,9 @@
 // @flow strict
 import React from 'react';
-import { Link } from 'gatsby';
-import kebabCase from 'lodash/kebabCase';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
+import Topics from '../components/Post/Topics';
 import { useSiteMetadata, useTopicsList } from '../hooks';
 
 const TopicsListTemplate = () => {
@@ -15,15 +14,7 @@ const TopicsListTemplate = () => {
     <Layout title={`Topics - ${title}`} description={subtitle}>
       <Sidebar />
       <Page title="Topics">
-        <ul>
-          {topics.map((topic) => (
-            <li key={topic.fieldValue}>
-              <Link to={`/topic/${kebabCase(topic.fieldValue)}/`}>
-                {topic.fieldValue} ({topic.totalCount})
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <Topics topics={topics} />
       </Page>
     </Layout>
   );

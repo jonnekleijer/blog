@@ -16,8 +16,7 @@ const useTopicsList = () => {
       }
     `
   );
-
-  return allMarkdownRemark.group;
+  return allMarkdownRemark.group.map((topic) => topic.fieldValue);
 };
 
 export default useTopicsList;

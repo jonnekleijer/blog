@@ -15,7 +15,7 @@ type Props = {
 
 const Post = ({ post }: Props) => {
   const { html } = post;
-  const { topicSlugs, slug } = post.fields;
+  const { slug } = post.fields;
   const { topics, title, date } = post.frontmatter;
 
   return (
@@ -28,7 +28,7 @@ const Post = ({ post }: Props) => {
 
       <div className={styles['post__footer']}>
         <Meta date={date} />
-        {topics && topicSlugs && <Topics topics={topics} topicSlugs={topicSlugs} />}
+        {topics && <Topics topics={topics}/>}
         <Author />
       </div>
 
