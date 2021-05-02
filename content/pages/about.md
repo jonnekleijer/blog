@@ -5,9 +5,7 @@ socialImage: "/media/image-2.jpg"
 ---
 
 
-I am a software engineer for products of [AquaSuite](https://aquasuite.ai/en/) at [HaskoningDHV](https://www.royalhaskoningdhv.com/). I started making software since 2017. My focus is making software incorporating data analysis for the water sector. My goals for this blog is to:
-* Formulate techniques and concepts in my own words to make my thinking more explicit.
-* .
+I am a software engineer for products of [AquaSuite](https://aquasuite.ai/en/) at [HaskoningDHV](https://www.royalhaskoningdhv.com/). I started making software since 2017. I focus on making software with data analysis for the water sector. My main goal is to personalize learned techniques and concepts by making my thinking more explicit.
 
 ## Software developer @ Aquasuite
 *2020*  
