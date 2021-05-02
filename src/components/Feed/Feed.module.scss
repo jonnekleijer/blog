@@ -49,13 +49,13 @@
       &-category {
         &-link {
           font-size: $typographic-small-font-size;
-          color: $color-secondary;
+          color: $color-primary;
           font-weight: 600;
           text-transform: uppercase;
 
           &:hover,
           &:focus {
-            color: $color-primary;
+            color: $color-base;
           }
 
         }
@@ -66,12 +66,19 @@
 
     &-readmore {
       font-size: $typographic-base-font-size;
-      color: $color-primary;
+      display: inline-block;
+      height: $button-height;
+      padding: 0 24px;
+      line-height: $button-height;
+      border: 1px solid $color-gray-border;
+      text-decoration: none;
+      border-radius: $button-border-radius;
+      color: $color-white;
+      background-color: $color-primary;
 
       &:hover,
       &:focus {
-        color: $color-primary;
-        border-bottom: 1px solid $color-primary;
+        color: $color-white;
       }
 
     }

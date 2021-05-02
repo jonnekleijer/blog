@@ -35,11 +35,15 @@
   
         &:hover,
         &:focus {
-          color: $color-primary;
+          color: $color-white;
         }
 
       }
-
+  
+      &:hover,
+      &:focus {
+        background-color: $color-primary;
+      }
     }
 
   }

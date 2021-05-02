@@ -5,7 +5,7 @@ module.exports = {
     id: 'test-123',
     html: '<p>test</p>',
     fields: {
-      tagSlugs: [
+      topicSlugs: [
         '/test_0',
         '/test_1'
       ]
@@ -14,7 +14,7 @@ module.exports = {
       date: '2016-09-01',
       description: 'test',
       title: 'test',
-      tags: [
+      topics: [
         'test_0',
         'test_1'
       ]

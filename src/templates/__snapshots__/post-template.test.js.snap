@@ -48,26 +48,26 @@ exports[`PostTemplate renders correctly 1`] = `
         </p>
       </div>
       <div
-        className="tags"
+        className="topics"
       >
         <ul
-          className="tags__list"
+          className="topics__list"
         >
           <li
-            className="tags__list-item"
+            className="topics__list-item"
           >
             <a
-              className="tags__list-item-link"
+              className="topics__list-item-link"
               href="/test_0"
             >
               test_0
             </a>
           </li>
           <li
-            className="tags__list-item"
+            className="topics__list-item"
           >
             <a
-              className="tags__list-item-link"
+              className="topics__list-item-link"
               href="/test_1"
             >
               test_1

@@ -5,7 +5,7 @@ template: "post"
 draft: false
 slug: "humane-typography-in-the-digital-age"
 category: "Typography"
-tags:
+topics:
   - "Design"
   - "Typography"
   - "Web Development"

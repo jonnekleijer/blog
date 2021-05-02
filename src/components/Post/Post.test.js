@@ -23,14 +23,14 @@ describe('Post', () => {
       fields: {
         slug: '/test',
         categorySlug: '/test-category',
-        tagSlugs: [
+        topicSlugs: [
           '/test_0',
           '/test_1'
         ]
       },
       frontmatter: {
         date: '2016-09-01',
-        tags: [
+        topics: [
           'test_0',
           'test_1'
         ],

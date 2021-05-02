@@ -1,14 +1,14 @@
 // @flow strict
 import { useStaticQuery, graphql } from 'gatsby';
 
-const useTagsList = () => {
+const useTopicsList = () => {
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
-      query TagsListQuery {
+      query TopicsListQuery {
         allMarkdownRemark(
           filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
         ) {
-          group(field: frontmatter___tags) {
+          group(field: frontmatter___topics) {
             fieldValue
             totalCount
           }
@@ -16,8 +16,9 @@ const useTagsList = () => {
       }
     `
   );
-
-  return allMarkdownRemark.group;
+  return allMarkdownRemark.group
+    .sort((a, b) => b.totalCount - a.totalCount || a.fieldValue - b.fieldValue)
+    .map((topic) => topic.fieldValue);
 };
 
-export default useTagsList;
+export default useTopicsList;

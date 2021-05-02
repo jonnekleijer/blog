@@ -2,12 +2,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { useStaticQuery, StaticQuery } from 'gatsby';
-import TagsListTemplate from './tags-list-template';
+import TopicsListTemplate from './topics-list-template';
 import siteMetadata from '../../jest/__fixtures__/site-metadata';
 import allMarkdownRemark from '../../jest/__fixtures__/all-markdown-remark';
 import type { RenderCallback } from '../types';
 
-describe('TagsListTemplate', () => {
+describe('topicsListTemplate', () => {
   const props = {
     ...siteMetadata,
     ...allMarkdownRemark
@@ -23,7 +23,7 @@ describe('TagsListTemplate', () => {
   });
 
   it('renders correctly', () => {
-    const tree = renderer.create(<TagsListTemplate />).toJSON();
+    const tree = renderer.create(<TopicsListTemplate />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

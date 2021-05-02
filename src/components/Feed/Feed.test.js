@@ -11,7 +11,7 @@ describe('Feed', () => {
           fields: {
             slug: '/test_0',
             categorySlug: '/test_0',
-            tagSlugs: [
+            topicSlugs: [
               '/test-1',
               '/test-2'
             ]
@@ -20,7 +20,7 @@ describe('Feed', () => {
             date: '2016-09-01',
             description: 'test_0',
             category: 'test_0',
-            tags: [
+            topics: [
               'test-1',
               'test-2'
             ],
@@ -36,7 +36,7 @@ describe('Feed', () => {
           fields: {
             slug: '/test_1',
             categorySlug: '/test_1',
-            tagSlugs: [
+            topicSlugs: [
               '/test-1',
               '/test-2'
             ]
@@ -45,7 +45,7 @@ describe('Feed', () => {
             date: '2016-09-01',
             description: 'test_1',
             category: 'test_1',
-            tags: [
+            topics: [
               'test-1',
               'test-2'
             ],

@@ -1,7 +1,7 @@
 @import '../../../assets/scss/variables';
 @import '../../../assets/scss/mixins';
 
-.tags {
+.topics {
   @include margin-bottom(.5);
 
   &__list {
@@ -25,7 +25,8 @@
 
         &:hover,
         &:focus {
-          color: $color-primary;
+          color: $color-white;
+          background-color: $color-primary;
         }
 
       }
