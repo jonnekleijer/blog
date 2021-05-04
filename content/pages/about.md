@@ -5,7 +5,12 @@ socialImage: "/media/image-2.jpg"
 ---
 
 
-I am a software engineer for products of [AquaSuite](https://aquasuite.ai/en/) at [HaskoningDHV](https://www.royalhaskoningdhv.com/). I started making software since 2017. I focus on making software with data analysis for the water sector. My main goal is to personalize learned techniques and concepts by making my thinking more explicit.
+I am a software engineer for products of [AquaSuite](https://aquasuite.ai/en/) at [HaskoningDHV](https://www.royalhaskoningdhv.com/). I started making software since 2017. I focus on making software with data analysis for the water sector. My main goals:
+* Indexable references of note-to-selfs.
+* Further digest and solidify stuff I learned.
+* Appreciate personal progress.
+* Personalize learned techniques and concepts by making my thinking more explicit.
+
 
 ## Software developer @ Aquasuite
 *2020*  
