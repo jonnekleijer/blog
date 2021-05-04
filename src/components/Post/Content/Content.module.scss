@@ -19,6 +19,14 @@
   }
 
   &__body {
+    & table {
+      width: 100%;
+      table-layout: fixed;
+    }
+    & tr {
+      border-bottom: 10px solid rgba(0,0,0,0.12)
+    }
+
     & figure {
       @include margin-bottom(1);
 
