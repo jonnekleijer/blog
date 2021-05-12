@@ -35,8 +35,6 @@ ADX vision: Be the ideal tool to analyze high volumes of fresh and historical da
 
 *The architecture of ADX shows the ingestion (left) and the data retrieval using KQL (right). The data can be ingested using batches and stream of data. Internally there is a `Data Management` service, which checks the various sources for new data to be ingested and a `Engine`, which stores the actual data after caching it on a SSD. The queries are also handled by the Engine. Adjusted from [a PluralSight course](https://app.pluralsight.com/course-player?clipId=80b5669e-75c9-4fec-950b-e75b978bcbc6) by [Xavier Morera](https://twitter.com/xmorera?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)*
 
-There are others products to achieve the same, however in the whole Azure landscape it can be tricky finding the product best suited for your needs. Currently, we store timeseries in Cosmos DB and Azure Table storage. Both are great products, but for storing IoT timeseries data there are more suitable solutions. Table storage has throughput limitations and querying data is not very flexible. Cosmos DB has very flexible query options with EF core support, however you have to create aggregates yourself and it is quite expensive for write heavy applications.
-
 The code in this article is available on [github](https://github.com/jonnekleijer/TimeSeriesApp). 
 
 ## Prerequisites:
@@ -170,15 +168,30 @@ protected override ICollection<TimeSerieValueModel> Handle(GetTimeSeriesRequestM
 }
 ```
 
+When running the application, you test our newly created endpoint with a client, for example Postman:
+
+```
+https://localhost:5001/TimeSeries/:assetId?start=2021-03-01T01:01&end=2021-04-02
+```
+
+<figure>
+	<img src="/media/timeseries-postman.jpg" alt="Timeseries postman call.">
+</figure>
+
+*The postman call returns an example request When you run the application you can use an API*
+
+
 ## Summary 
 The code is available on [github](https://github.com/jonnekleijer/TimeSeriesApp). 
 
 Here we showed an example on how to link Azure Data Explorer to a C# client and build your own custom logic on top of ADX. We've seen we don't require to precalculate aggregates, which makes this a flexible database for timeserie analysis. Sending queries using the C# client library only supports using strings and there is not an object model to build up your queries, which makes it a bit less developer friendly.
 
+
 Some next steps might be:
 * Explore More advanced KQL queries
 * Ingest data
 * Manage our own Azure Data Explorer resources (e.g # of clusters)
+* Add a user interface to explore the timeseries
 
 ## References:
 * [Homepage of Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/)
