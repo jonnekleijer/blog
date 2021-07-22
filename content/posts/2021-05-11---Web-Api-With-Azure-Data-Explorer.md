@@ -1,5 +1,5 @@
 ---
-title: "Create a timeseries application with Azure Data Explorer"
+title: "Create a timeseries application with Azure Data Explorer [1/x]"
 date: "2021-05-11T00:00:00.000Z"
 template: "post"
 draft: false
@@ -11,7 +11,7 @@ topics:
   - "Azure"
   - "C#"
   - "Azure Data Explorer"
-description: "Visual Studio is the IDE I use for making my ASP.NET Core and C# applications. I feel when I mainly use my keyboard instead of the mouse, my productivity increases and it feels I can keep the thought train going."
+description: "In this post we explore quering of timeseries. Azure Data Explorer is a timeseries database, which can be used for IoT, logs or performance metrics. This is part of a series of blog posts. "
 socialImage: "/media/keyboard-shortcut.jpg"
 ---
 
@@ -184,7 +184,7 @@ https://localhost:5001/TimeSeries/:assetId?start=2021-03-01T01:01&end=2021-04-02
 ## Summary 
 The code is available on [github](https://github.com/jonnekleijer/TimeSeriesApp). 
 
-Here we showed an example on how to link Azure Data Explorer to a C# client and build your own custom logic on top of ADX. We've seen we don't require to precalculate aggregates, which makes this a flexible database for timeserie analysis. Sending queries using the C# client library only supports using strings and there is not an object model to build up your queries, which makes it a bit less developer friendly.
+We showed an example on how to link Azure Data Explorer to a C# client and build your own custom logic on top of ADX. We don't require to precalculate aggregates, which makes this a flexible database for timeserie analysis. Sending queries using the C# client library only supports using strings and there is not an object model to build up your queries, which makes it a bit less developer friendly.
 
 
 Some next steps might be:
