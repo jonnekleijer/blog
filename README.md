@@ -1,19 +1,21 @@
+# Blog Jonne
+
 ## Table of contents
+
 This blog is based on the Gatby Start Lumen. See its [features](http://github.com/alxshelepenok/gatsby-starter-lumen#features)
 
 + [Quick Start](http://github.com/alxshelepenok/gatsby-starter-lumen#developer)
 + [Folder Structure](http://github.com/alxshelepenok/gatsby-starter-lumen#folder-structure)
 + [License](http://github.com/alxshelepenok/gatsby-starter-lumen#license)
 
-
 ## Developer
+
 ```cmd
 gatsby develop
 ```
 
 Site runs at `http://localhost:8000`
 GraphQL runs at `http://localhost:8000/___graphql`
-
 
 ```cmd
 yarn build
@@ -23,9 +25,10 @@ gatsby serve
 Admin runs at `http://localhost:8000/admin`
 
 To test the CMS locally, you'll need run a production build of the site:
-```
-$ yarn build
-$ gatsby serve
+
+```cmd
+yarn build
+gatsby serve
 ```
 
 ## Folder Structure
@@ -68,6 +71,7 @@ $ gatsby serve
 ```
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2016-2020 Alexander Shelepenok
