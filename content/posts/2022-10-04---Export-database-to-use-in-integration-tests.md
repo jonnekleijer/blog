@@ -128,7 +128,7 @@ Once I know the build id, I can download the artifacts using the normal `Downloa
 
 We use [MartinCostello's `sqlLocalDbApi`](https://github.com/martincostello/sqllocaldb) to configure the database, attach the backup and import the data. High-level it creates the database and import the database.
 
-```C#
+```dotnet
 using MartinCostello.SqlLocalDb;
 using Microsoft.SqlServer.Dac;
 
