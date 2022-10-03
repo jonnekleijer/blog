@@ -3,7 +3,7 @@ title: "Export database to use in integration tests."
 date: "2022-10-04T00:00:00.000Z"
 template: "post"
 draft: false
-slug: "shortcuts-in-visual-studio"
+slug: "export-db-integration-tests"
 category: "Devops"
 topics:
   - "Azure"
