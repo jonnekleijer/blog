@@ -1,5 +1,5 @@
 ---
-title: "Create a timeseries application with Azure Data Explorer [1/x]"
+title: "Create a scalable timeseries application with Azure Data Explorer [1/x]"
 date: "2021-05-11T00:00:00.000Z"
 template: "post"
 draft: false
