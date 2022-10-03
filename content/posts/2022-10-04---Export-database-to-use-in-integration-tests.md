@@ -1,13 +1,15 @@
 ---
-title: "Use an exported database in integration tests."
+title: "Export database to use in integration tests."
 date: "2022-10-04T00:00:00.000Z"
 template: "post"
 draft: false
 slug: "shortcuts-in-visual-studio"
 category: "Devops"
 topics:
-  - "Azure Devops"
-  - "Azure Pipelines"
+  - "Azure"
+  - "C#"
+  - ".Net"
+  - "Pipelines"
   - "SQL Server"
 description: "Use an exported database in integration tests by publishing a database backup, find and import the database in LocalDb in a Azure Pipelines."
 socialImage: "/media/keyboard-shortcut.jpg"
@@ -17,7 +19,7 @@ The goal of this post is to show how to use a database export from a database pr
 
 ## Motivation to use LocalDb
 
-For the integration tests of the API I wanted to have a connection to a database to test the full API flow from the http call to the actual queries and commands. An in-memory database is not sufficient as this database provider has several limitions, such as:
+For the integration tests of the API I wanted to have a connection to a database to test the full API flow from the http call to the actual queries and commands. An in-memory database is not sufficient as this database provider has blocking limitions, such as:
 
 * No awareness of relations between entities.
 * No support for stored procedures.
@@ -158,4 +160,4 @@ In the integration test `appsettings.json`, we need to set the  connection strin
 }
 ```
 
-The database is hosted in the pipeline agent itself.
+The database is hosted in the pipeline agent itself. Now you are all set up to run your integration tests using a test database.
