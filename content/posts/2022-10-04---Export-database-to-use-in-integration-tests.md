@@ -19,7 +19,7 @@ The post demonstrates how to use a database export in API integration tests.
 
 <figure>
  <img src="/media/db-api-pipeline.jpg" alt="Scheme of database and API pipeline">
- <figcaption>Scheme showing the 5 steps in adding a database to the integration tests of an API.</figcaption>
+ <figcaption>Pipelines of the database and api showing the 5 high level steps in using a LocalDb to run integration tests of an API.</figcaption>
 </figure>
 
 ## Motivation to use LocalDb
@@ -84,7 +84,7 @@ To find the database asset was not that straightforward, as the build only compl
 
 <figure>
  <img src="/media/release-pipeline.jpg" alt="Database release pipeline">
- <figcaption>Database release pipeline.</figcaption>
+ <figcaption>Database release pipeline completes after releasing to production, while we the database export before to run the integration tests.</figcaption>
 </figure>
 
 We are interested in the `BuildId` that completed the test stage last. We cannot use the [latest build](https://learn.microsoft.com/en-us/rest/api/azure/devops/build/latest/get?view=azure-devops-rest-6.0) as it returns the latest completed build pipelines.
