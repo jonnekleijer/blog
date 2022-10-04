@@ -1,6 +1,6 @@
 ---
 title: "Export database to use in integration tests."
-date: "2022-10-04T00:00:00.000Z"
+date: "2022-10-05T00:00:00.000Z"
 template: "post"
 draft: false
 slug: "export-db-integration-tests"
@@ -12,10 +12,15 @@ topics:
   - "Pipelines"
   - "SQL Server"
 description: "Use an exported database in integration tests by publishing a database backup, find and import the database in LocalDb in a Azure Pipelines."
-socialImage: "/media/keyboard-shortcut.jpg"
+socialImage: "/media/db-api-pipeline.jpg"
 ---
 
-The goal of this post is to show how to use a database export from a database project and use it in API integration tests.
+The post demonstrates how to use a database export in API integration tests.
+
+<figure>
+ <img src="/media/db-api-pipeline.jpg" alt="Scheme of database and API pipeline">
+ <figcaption>Scheme showing the 5 steps in adding a database to the integration tests of an API.</figcaption>
+</figure>
 
 ## Motivation to use LocalDb
 
@@ -26,9 +31,14 @@ For the integration tests of the API I wanted to have a connection to a database
 
 [SQL Server Express LocalDb](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-2017) does not have these limitations, as it relies also on the SQL Server Database Engine. It has some other limitations, but none relevant for my use case.
 
-A final advantage is that is easily accessible in Devops:
+LocalDb is easily accessible in an Azure Pipeline Agent:
 
 ```yaml
+pool:
+  vmImage: 'windows-latest'
+
+...
+
 - task: PowerShell@2
   displayName: Use LocalDb
   inputs:
@@ -38,16 +48,16 @@ A final advantage is that is easily accessible in Devops:
 
 ## Get the database
 
-In order to get a representative database, I export a database after applying the entity migrations. In the current design the database and the API are seperated services.
+After applying the latest changes and migrations in the database (step 1), the database is exported (step 2). In the current design the database and the API are seperated services.
 
 ```yaml
 - task: SqlAzureDacpacDeployment@1
   inputs:
-    azureSubscription: ${{ parameters.servicePrincipal }}
-    serverName: ${{ parameters.sqlServerName }}
-    databaseName: ${{ parameters.databaseName }}
-    sqlUsername: ${{ parameters.sqlUsername }}
-    sqlPassword: ${{ parameters.sqlPassword }}
+    azureSubscription: servicePrincipal
+    serverName: sqlServerName
+    databaseName: mydb
+    sqlUsername: username
+    sqlPassword: password
     deployType: DacpacTask
     DeploymentAction: Export
     IpDetectionMethod: AutoDetect
@@ -72,10 +82,12 @@ The database can be used in the API pipeline.
 
 To find the database asset was not that straightforward, as the build only completes after executing migrations in production. The integration tests need to run before, e.g. when API a new feature has an open pull request.
 
-![release-pipeline.jpg](/media/release-pipeline.jpg)
+<figure>
+ <img src="/media/release-pipeline.jpg" alt="Database release pipeline">
+ <figcaption>Database release pipeline.</figcaption>
+</figure>
 
-The build id we are interested in is the one that has completed the test stage last.
-We cannot use the [latest build](https://learn.microsoft.com/en-us/rest/api/azure/devops/build/latest/get?view=azure-devops-rest-6.0) as it only returns the latest completed build pipelines.
+We are interested in the `BuildId` that completed the test stage last. We cannot use the [latest build](https://learn.microsoft.com/en-us/rest/api/azure/devops/build/latest/get?view=azure-devops-rest-6.0) as it returns the latest completed build pipelines.
 
 Below you find the script to retrieve the latest build which completed a specific stage.
 
@@ -110,7 +122,7 @@ Below you find the script to retrieve the latest build which completed a specifi
       }
 ```
 
-Once I know the build id, I can download the artifacts using the normal `DownloadPipelineArtifact` task with the specific build.id.
+After getting the `BuildId`, we can download the artifact (step 3).
 
 ```yaml
   - task: DownloadPipelineArtifact@2
@@ -118,7 +130,7 @@ Once I know the build id, I can download the artifacts using the normal `Downloa
     inputs:
       source: specific
       project: $(System.TeamProjectId)
-      pipeline: ${{ parameters.databaseReleasePipelineId }}
+      pipeline: databasePipelineId
       runVersion: specific
       buildId: $(BuildId)
       path: $(Pipeline.Workspace)
@@ -126,7 +138,7 @@ Once I know the build id, I can download the artifacts using the normal `Downloa
       checkDownloadedFiles: true
 ```
 
-We use [MartinCostello's `sqlLocalDbApi`](https://github.com/martincostello/sqllocaldb) to configure the database, attach the backup and import the data. High-level it creates the database and import the database.
+[MartinCostello's `sqlLocalDbApi`](https://github.com/martincostello/sqllocaldb) has an excellant interface to configure the database, attach the backup and import the data (step 4). Roughly, the flow looks like:
 
 ```dotnet
 using MartinCostello.SqlLocalDb;
@@ -160,4 +172,11 @@ In the integration test `appsettings.json`, we need to set the  connection strin
 }
 ```
 
-The database is hosted in the pipeline agent itself. Now you are all set up to run your integration tests using a test database.
+The database is hosted in the pipeline agent itself. Now you are all set up to run your integration tests using a test database (step 5).
+
+## References
+
+* [LocalDb documentation.](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-2017)
+* [Using SQL Server Express LocalDB in Azure DevOps.](https://www.jannikbuschke.de/blog/azure-devops-enable-mssqllocaldb/)
+* [Azure's Build REST API documentation.](https://learn.microsoft.com/en-us/rest/api/azure/devops/build/?view=azure-devops-rest-6.0)
+* [MartinCostello's `sqlLocalDbApi` package.](https://github.com/martincostello/sqllocaldb)
