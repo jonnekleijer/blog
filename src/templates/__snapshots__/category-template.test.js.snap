@@ -250,7 +250,7 @@ exports[`CategoryTemplate renders correctly 1`] = `
             >
               <time
                 className="feed__item-meta-time"
-                dateTime="September 1, 2016"
+                dateTime="1 September 2016"
               >
                 September 2016
               </time>
@@ -298,7 +298,7 @@ exports[`CategoryTemplate renders correctly 1`] = `
             >
               <time
                 className="feed__item-meta-time"
-                dateTime="September 1, 2016"
+                dateTime="1 September 2016"
               >
                 September 2016
               </time>

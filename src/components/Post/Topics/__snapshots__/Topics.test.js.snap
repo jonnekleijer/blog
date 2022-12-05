@@ -12,7 +12,7 @@ exports[`Topics renders correctly 1`] = `
     >
       <a
         className="topics__list-item-link"
-        href="/test_0"
+        href="/topic/test-0"
       >
         test_0
       </a>
@@ -22,7 +22,7 @@ exports[`Topics renders correctly 1`] = `
     >
       <a
         className="topics__list-item-link"
-        href="/test_1"
+        href="/topic/test-1"
       >
         test_1
       </a>

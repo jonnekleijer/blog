@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TopicsListTemplate renders correctly 1`] = `
+exports[`topicsListTemplate renders correctly 1`] = `
 <div
   className="layout"
 >
@@ -239,28 +239,34 @@ exports[`TopicsListTemplate renders correctly 1`] = `
       <div
         className="page__body"
       >
-        <ul>
-          <li>
-            <a
-              href="/topic/test-0/"
+        <div
+          className="topics"
+        >
+          <ul
+            className="topics__list"
+          >
+            <li
+              className="topics__list-item"
             >
-              test_0
-               (
-              1
-              )
-            </a>
-          </li>
-          <li>
-            <a
-              href="/topic/test-1/"
+              <a
+                className="topics__list-item-link"
+                href="/topic/test-1"
+              >
+                test_1
+              </a>
+            </li>
+            <li
+              className="topics__list-item"
             >
-              test_1
-               (
-              2
-              )
-            </a>
-          </li>
-        </ul>
+              <a
+                className="topics__list-item-link"
+                href="/topic/test-0"
+              >
+                test_0
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
